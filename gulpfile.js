@@ -18,7 +18,7 @@ gulp.task("default",()=>{
 	console.log("default是必须这么写, 才是默认任务");
 });
 //定义具体任务
-gulp.task("message",()=>{
+gulp.task("message",()=>{   //在终端输入gulp message 即可运行
 	console.log("执行具体任务,需要在终端运行 gulp message(任务名)");
 });
 
@@ -29,12 +29,12 @@ gulp.task("copyHtml",()=>{
 	gulp.src('src/*.html')
 		.pipe(gulp.dest('dist'));	
 });
-//定义压缩图片任务
-gulp.task('imageMin',()=>{
-	gulp.src("src/images/*")
-		.pipe(minImage())
-		.pipe(gulp.dest("dist/images"));
-})
+// //定义压缩图片任务
+// gulp.task('imageMin',()=>{
+// 	gulp.src("src/images/*")
+// 		.pipe(minImage())
+// 		.pipe(gulp.dest("dist/images"));
+// })
 //压缩js代码任务
 //1.下载gulp-uglify
 //2.引入模块
@@ -53,8 +53,9 @@ gulp.task('sass',()=>{
 		.pipe(gulp.dest("dist/css"))
 });
 
-//默认任务
+//默认任务 不用单独去执行 写成这样可以一次执行多个任务
 gulp.task("default",["message","copyHtml","imageMin","sass","ysdm"]);
+
 
 
 //监听任务
